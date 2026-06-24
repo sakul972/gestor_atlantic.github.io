@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlantic Sports | Apuestas Deportivas</title>
+    <!-- Tu CSS compilado -->
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+
+    <!-- Menú de Navegación (Igual al index, pero resaltando otra pestaña) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-white" href="index.html">
+                ATLANTIC <span class="text-gold">CASINO</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto ms-4">
+                    <!-- Enlace a la página actual (Inicio) -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Inicio</a>
+                    </li>
+                    <!-- NUEVO: Enlace a la página de Apuestas -->
+                    <li class="nav-item">
+                        <a class="nav-link text-gold fw-bold" href="deportes.html">Apuestas Deportivas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tragamonedas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Casino en Vivo</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-3 mt-3 mt-lg-0">
+                    <button class="btn btn-outline-light px-4" data-bs-toggle="modal" data-bs-target="#authModal">Ingresar</button>
+                    <button class="btn btn-primary px-4 shadow-lg" data-bs-toggle="modal" data-bs-target="#authModal">Regístrate</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor Principal de Deportes -->
+    <main class="container pt-5 mt-5 mb-5 pb-5">
+        
+        <!-- Cabecera de la sección -->
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-4">
+            <h2 class="text-white fw-bold m-0"><i class="bi bi-trophy"></i> FÚTBOL DESTACADO</h2>
+            <select class="form-select bg-dark text-white border-secondary w-auto">
+                <option selected>Cuotas: Decimal (2.50)</option>
+                <option>Cuotas: Americana (+150)</option>
+            </select>
+        </div>
+
+        <!-- Pestañas (En Vivo / Pre-Match) -->
+        <ul class="nav nav-pills mb-4 gap-2" id="sportsTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-pill px-4" id="live-tab" data-bs-toggle="pill" data-bs-target="#live" type="button" role="tab">
+                    <span class="live-indicator me-2"></span> En Vivo
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link text-white rounded-pill px-4" id="prematch-tab" data-bs-toggle="pill" data-bs-target="#prematch" type="button" role="tab">
+                    Próximos (Pre-Match)
+                </button>
+            </li>
+        </ul>
+
+        <!-- Contenido de las Pestañas -->
+        <div class="tab-content" id="sportsTabsContent">
+            
+            <!-- ==========================================
+                 PESTAÑA: EN VIVO
+                 ========================================== -->
+            <div class="tab-pane fade show active" id="live" role="tabpanel">
+                
+                <!-- Partido En Vivo 1: Champions League -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-gold small fw-bold mb-2"><i class="bi bi-star-fill"></i> Champions League <span class="text-danger ms-2">67'</span></div>
+                            <div class="d-flex justify-content-between text-white fw-bold mb-1">
+                                <span>Real Madrid</span>
+                                <span class="text-gold fs-5">2</span>
+                            </div>
+                            <div class="d-flex justify-content-between text-white fw-bold">
+                                <span>Manchester City</span>
+                                <span class="text-gold fs-5">1</span>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <div class="text-light opacity-75 small mb-1">1</div>
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>RM</span> <span>1.45</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-light opacity-75 small mb-1">X</div>
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>Empate</span> <span>3.80</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <div class="text-light opacity-75 small mb-1">2</div>
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>MC</span> <span>6.50</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido En Vivo 2: Copa Libertadores -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-gold small fw-bold mb-2">Copa Libertadores <span class="text-danger ms-2">82'</span></div>
+                            <div class="d-flex justify-content-between text-white fw-bold mb-1">
+                                <span>Boca Juniors</span>
+                                <span class="text-gold fs-5">1</span>
+                            </div>
+                            <div class="d-flex justify-content-between text-white fw-bold">
+                                <span>River Plate</span>
+                                <span class="text-gold fs-5">1</span>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>BOC</span> <span>3.20</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>Empate</span> <span>1.85</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>RIV</span> <span>4.10</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido En Vivo 3: Bundesliga -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-gold small fw-bold mb-2">Bundesliga <span class="text-danger ms-2">34'</span></div>
+                            <div class="d-flex justify-content-between text-white fw-bold mb-1">
+                                <span>Bayern Munich</span>
+                                <span class="text-gold fs-5">2</span>
+                            </div>
+                            <div class="d-flex justify-content-between text-white fw-bold">
+                                <span>Borussia Dortmund</span>
+                                <span class="text-gold fs-5">0</span>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>BAY</span> <span>1.15</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>Empate</span> <span>8.50</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex justify-content-between px-3"><span>BVB</span> <span>15.00</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ==========================================
+                 PESTAÑA: PRE-MATCH
+                 ========================================== -->
+            <div class="tab-pane fade" id="prematch" role="tabpanel">
+                
+                <!-- Partido Pre-Match 1: Premier League -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-light opacity-75 small fw-bold mb-2">Premier League • Hoy 15:00</div>
+                            <div class="text-white fw-bold mb-1">Arsenal</div>
+                            <div class="text-white fw-bold">Liverpool</div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">1</span> <span class="fs-5">2.10</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">X</span> <span class="fs-5">3.40</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">2</span> <span class="fs-5">3.15</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido Pre-Match 2: La Liga -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-light opacity-75 small fw-bold mb-2">La Liga • Mañana 14:00</div>
+                            <div class="text-white fw-bold mb-1">FC Barcelona</div>
+                            <div class="text-white fw-bold">Atlético Madrid</div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">1</span> <span class="fs-5">1.95</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">X</span> <span class="fs-5">3.50</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">2</span> <span class="fs-5">3.80</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Partido Pre-Match 3: Serie A -->
+                <div class="match-card border border-secondary rounded-3 p-3 mb-3 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0">
+                            <div class="text-light opacity-75 small fw-bold mb-2">Serie A • Sábado 18:30</div>
+                            <div class="text-white fw-bold mb-1">Juventus</div>
+                            <div class="text-white fw-bold">AC Milan</div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="row g-2 text-center">
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">1</span> <span class="fs-5">2.45</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">X</span> <span class="fs-5">3.10</span></button>
+                                </div>
+                                <div class="col-4">
+                                    <button class="btn odds-btn w-100 py-2 d-flex flex-column align-items-center"><span class="small opacity-75">2</span> <span class="fs-5">2.90</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-black pt-5 pb-3 border-top border-gold mt-5">
+        <div class="container">
+            <div class="row gy-4 mb-4">
+                
+                <!-- Columna 1: Marca y Texto -->
+                <div class="col-lg-4">
+                    <h4 class="text-white fw-bold mb-3">
+                        ATLANTIC <span class="text-gold">CASINO</span>
+                    </h4>
+                    <p class="text-light opacity-75 small pe-md-4">
+                        La experiencia definitiva de apuestas deportivas y casino online. Juega de forma responsable. Solo para mayores de 18 años.
+                    </p>
+                </div>
+                
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-white mb-3 fw-bold">Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Sobre Nosotros</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Términos de Uso</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Políticas de Privacidad</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3: Soporte y Ayuda -->
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-3 fw-bold">Soporte</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">Juego Responsable</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Reglas de Apuestas</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">Contacto 24/7</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 4: Pagos -->
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-3 fw-bold">Métodos de Pago</h5>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-dark border border-secondary p-2">VISA</span>
+                        <span class="badge bg-dark border border-secondary p-2">MasterCard</span>
+                        <span class="badge bg-dark border border-secondary p-2">Bitcoin</span>
+                        <span class="badge bg-dark border border-secondary p-2">PayPal</span>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- Línea divisoria y Copyright -->
+            <div class="border-top border-secondary pt-3 mt-3 text-center">
+                <p class="text-light opacity-50 small mb-0">
+                    &copy; 2026 Atlantic Casino. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Autenticación (Login / Registro) -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content custom-dark text-white rounded-4 shadow-lg">
+                
+                <!-- Cabecera del Modal con Pestañas -->
+                <div class="modal-header border-bottom border-secondary pb-0">
+                    <ul class="nav nav-tabs border-0 w-100 mb-0" id="authTabs" role="tablist">
+                        <li class="nav-item w-50 text-center" role="presentation">
+                            <button class="nav-link active bg-transparent border-0 text-white w-100 fw-bold pb-3" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Iniciar Sesión</button>
+                        </li>
+                        <li class="nav-item w-50 text-center" role="presentation">
+                            <button class="nav-link bg-transparent border-0 text-light opacity-50 w-100 fw-bold pb-3" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Registro</button>
+                        </li>
+                    </ul>
+                    <!-- Botón para cerrar el modal (la 'X') -->
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Cuerpo del Modal -->
+                <div class="modal-body p-4 pt-4">
+                    <div class="tab-content" id="authTabsContent">
+                        
+                        <!-- Formulario de Iniciar Sesión -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <div class="text-center mb-4">
+                                <h4 class="fw-bold">Bienvenido de nuevo</h4>
+                                <p class="text-light opacity-75 small">Ingresa tus datos para continuar ganando</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label small text-gold fw-bold">Correo Electrónico</label>
+                                    <input type="email" class="form-control form-control-dark rounded-3" placeholder="ejemplo@correo.com" required>
+                                </div>
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <label class="form-label small text-gold fw-bold mb-0">Contraseña</label>
+                                        <a href="#" class="small text-light opacity-75 text-decoration-none hover-gold">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                    <input type="password" class="form-control form-control-dark rounded-3 mt-2" placeholder="••••••••" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold fs-5 mb-3">Ingresar al Casino</button>
+                            </form>
+                        </div>
+
+                        <!-- Formulario de Registro -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <div class="text-center mb-4">
+                                <h4 class="fw-bold">Únete a <span class="text-gold">Atlantic</span></h4>
+                                <p class="text-light opacity-75 small">Recibe un bono del 100% con tu primer depósito</p>
+                            </div>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label small text-gold fw-bold">Nombre Completo</label>
+                                    <input type="text" class="form-control form-control-dark rounded-3" placeholder="Tu nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small text-gold fw-bold">Correo Electrónico</label>
+                                    <input type="email" class="form-control form-control-dark rounded-3" placeholder="ejemplo@correo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small text-gold fw-bold">Contraseña</label>
+                                    <input type="password" class="form-control form-control-dark rounded-3" placeholder="Mínimo 8 caracteres" required>
+                                </div>
+                                <div class="form-check mb-4 mt-3">
+                                    <input class="form-check-input bg-dark border-secondary" type="checkbox" id="termsCheck" required>
+                                    <label class="form-check-label text-light opacity-75 small" for="termsCheck">
+                                        Soy mayor de 18 años y acepto los <a href="#" class="text-gold">Términos y Condiciones</a>.
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold fs-5 mb-2">Crear mi cuenta</button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap para que funcionen las pestañas -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Pequeño script para manejar la opacidad de las pestañas del modal
+        const authTabs = document.querySelectorAll('#authTabs .nav-link');
+        authTabs.forEach(tab => {
+            tab.addEventListener('show.bs.tab', function (e) {
+                authTabs.forEach(t => t.classList.add('opacity-50', 'text-light'));
+                authTabs.forEach(t => t.classList.remove('text-white'));
+                
+                e.target.classList.remove('opacity-50', 'text-light');
+                e.target.classList.add('text-white');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+```text
+# Dependencias de Node
+node_modules/
+
+# Archivos de sistema (por si acaso)
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación Sass (opcional, pero buena práctica)
+.sass-cache/
