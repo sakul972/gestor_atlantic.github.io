@@ -1,139 +1,172 @@
-// 1. Paleta de colores de Atlantic Casino
-$primary: #d4af37; // Dorado elegante (Gold)
-$dark: #0f0f0f;    // Negro profundo para fondos
-$light: #ffffff;   // Blanco para textos legibles
+// Variables del CRM - Nuevo estilo "Índigo Moderno"
+$sidebar-bg: #111827; // Gris azulado muy oscuro
+$primary-accent: #6366f1; // Índigo vibrante
+$bg-light: #f3f4f6; // Fondo ligeramente más grisáceo
+$text-dark: #1f2937;
+$text-muted: #6b7280;
 
-// 2. Ajustes globales base
-$body-bg: $dark;
-$body-color: $light;
-
-// 3. Importar Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-// 4. Clases personalizadas extra
-.text-gold {
-  color: $primary !important;
+body {
+    background-color: $bg-light;
+    color: $text-dark;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow-x: hidden;
 }
 
-.btn-primary {
-  color: $dark; // Para que el texto sobre el botón dorado sea negro y resalte
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
+// Estructura Layout
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
 }
 
-.btn-outline-light {
-  font-weight: 600;
-  text-transform: uppercase;
+// Barra Lateral (Sidebar) modificada
+.sidebar {
+    width: 280px; // Ligeramente más ancha
+    background-color: $sidebar-bg;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    
+    .brand-title {
+        font-weight: 800;
+        letter-spacing: 2px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-link {
+        color: #9ca3af;
+        padding: 0.85rem 1.5rem;
+        border-radius: 0.5rem;
+        margin: 0.4rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s ease;
+
+        &:hover { 
+            color: white; 
+            background-color: rgba(255, 255, 255, 0.05); 
+            transform: translateX(5px);
+        }
+        
+        &.active {
+            background-color: $primary-accent;
+            color: white; // Texto blanco en lugar del fondo oscuro
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+    }
 }
 
-// Fondo sutil para la barra de navegación al hacer scroll
-.navbar-custom {
-  background-color: rgba(15, 15, 15, 0.95);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3); // Línea dorada sutil
+// Contenido Principal
+.main-content {
+    flex-grow: 1;
+    padding: 2.5rem;
+    background-color: $bg-light;
 }
 
-// 5. Estilos para las tarjetas de juegos
-.border-gold {
-  border: 1px solid rgba(212, 175, 55, 0.3);
+// Tarjetas de Resumen (Stats Cards) con bordes más redondeados
+.stat-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.03);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s;
+
+    &:hover { transform: translateY(-3px); }
+    
+    .icon-box {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px; // Más circular
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+    }
 }
 
-.casino-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-10px); // Eleva la tarjeta suavemente
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25); // Brillo dorado sombra
-    border-color: $primary; // El borde se vuelve dorado sólido
-  }
-  
-  // Para oscurecer un poco el fondo de la tarjeta y que resalte el texto
-  background-color: rgba(20, 20, 20, 0.8) !important; 
+// --- ESTILOS PARA LA TABLA DE CLIENTES ---
+
+// Avatares circulares con iniciales
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
 }
 
-// 6. Banner y Pie de Página
-.bg-gold-gradient {
-  // Un degradado dorado que da un aspecto muy premium
-  background: linear-gradient(135deg, rgba(212, 175, 55, 0.9) 0%, rgba(138, 115, 34, 1) 100%);
-  color: $dark;
+// Estilos de la tabla
+.table-crm {
+    vertical-align: middle;
+    
+    th {
+        color: $text-muted;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.5px;
+        border-bottom: 2px solid rgba(0,0,0,0.05);
+        padding-bottom: 1rem;
+    }
+    
+    td {
+        padding: 1rem 0.5rem;
+        border-bottom: 1px solid rgba(0,0,0,0.03);
+        color: $text-dark;
+    }
+    
+    tbody tr:hover {
+        background-color: rgba(99, 102, 241, 0.02); // Hover sutil índigo
+    }
 }
 
-.footer-link {
-  color: rgba(255, 255, 255, 0.6);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: $primary; // Se vuelve dorado al pasar el ratón
-  }
+// Etiquetas VIP personalizadas (Sincronizadas con Base de Datos)
+.badge-vip {
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    display: inline-block;
+    
+    &.vip-platinum { background-color: #f3e8ff; color: #9333ea; } // Morado
+    &.vip-gold { background-color: #fef3c7; color: #d97706; }     // Dorado
+    &.vip-silver { background-color: #f1f5f9; color: #475569; }   // Plateado oscuro
+    &.vip-bronze { background-color: #ffedd5; color: #c2410c; }   // Bronce/Naranja
+    &.vip-basic { background-color: #ffffff; color: #94a3b8; border: 1px solid #e2e8f0; } // Básico
 }
 
-// Asegurarnos de que el footer tenga un fondo negro absoluto
-.bg-black {
-  background-color: #000000;
+// Barra de búsqueda
+.search-control {
+    background-color: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-// 7. Estilos para Apuestas Deportivas
-.live-indicator {
-  width: 10px;
-  height: 10px;
-  background-color: #e63946; // Rojo intenso para el "En vivo"
-  border-radius: 50%;
-  display: inline-block;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
-  70% { box-shadow: 0 0 0 8px rgba(230, 57, 70, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
-}
-
-// Botones para las cuotas (1X2)
-.odds-btn {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: $light;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background-color: $primary;
-    color: $dark !important;
-    border-color: $primary;
-  }
-}
-
-.match-card {
-  background-color: rgba(20, 20, 20, 0.95);
-  border-left: 3px solid transparent;
-  transition: border-color 0.3s ease;
-  
-  &:hover {
-    border-left-color: $primary; // Borde dorado al pasar el ratón
-  }
-}
-
-// 8. Estilos para Formularios del Modal
-.form-control-dark {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: $light;
-  padding: 0.75rem 1rem;
-
-  &:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: $primary;
-    color: $light;
-    box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
-  }
-  
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-  }
-}
-
-.modal-content.custom-dark {
-  background-color: #121212;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+// --- ADAPTACIÓN MÓVIL (RESPONSIVE) ---
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -280px; /* Oculta la barra hacia la izquierda */
+        height: 100vh;
+        z-index: 1050;
+        transition: left 0.3s ease-in-out;
+        
+        /* Clase que agregaremos con JavaScript para mostrarla */
+        &.show-sidebar {
+            left: 0;
+            box-shadow: 10px 0 15px rgba(0,0,0,0.5);
+        }
+    }
+    
+    .main-content {
+        padding: 1.5rem; /* Menos espacio en celulares */
+    }
 }
