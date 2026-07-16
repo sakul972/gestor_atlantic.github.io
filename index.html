@@ -17,13 +17,16 @@
             </div>
             
             <nav class="nav flex-column">
-                <a class="nav-link active" href="index.html"><i class="bi bi-grid-1x2-fill"></i> Panel Central</a>
-                <!-- Reordenamos para darle prioridad a los Reportes -->
-                <a class="nav-link" href="#"><i class="bi bi-graph-up-arrow"></i> Reportes Financieros</a>
-                <a class="nav-link" href="clientes.html"><i class="bi bi-people"></i> Gestión de Clientes</a>
-                <a class="nav-link" href="#"><i class="bi bi-pie-chart"></i> Segmentación</a>
-                <a class="nav-link" href="#"><i class="bi bi-gift"></i> Promociones Activas</a>
-                <a class="nav-link" href="#"><i class="bi bi-headset"></i> Soporte VIP</a>
+                
+                <a class="nav-link active" href="index.html"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
+                <a class="nav-link" href="clientes.html"><i class="bi bi-person-plus-fill"></i> Agregar Clientes</a>
+                <a class="nav-link" href="#"><i class="bi bi-gift"></i> Promociones</a>
+                <a class="nav-link" href="#"><i class="bi bi-clock-history"></i> Historial de Visitas</a>
+                <a class="nav-link" href="#"><i class="bi bi-headset"></i> Atención al Cliente</a>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 1rem 1.5rem;">
+                <a class="nav-link text-danger" href="#" onclick="cerrarSesion()" style="color: #ef4444 !important;">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                </a>
             </nav>
         </aside>
 
@@ -125,18 +128,7 @@
     </div>
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Lógica para el menú responsivo
-        document.addEventListener("DOMContentLoaded", function() {
-            const menuToggle = document.getElementById('menuToggle');
-            const sidebar = document.querySelector('.sidebar');
-            
-            if(menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    sidebar.classList.toggle('show-sidebar');
-                });
-            }
-        });
-    </script>
+    <script src="./js/main.js"></script>
+    <script src="./js/auth.js"></script>
 </body>
 </html>
